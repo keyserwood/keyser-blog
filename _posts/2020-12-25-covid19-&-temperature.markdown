@@ -82,13 +82,27 @@ On peut afficher pour le moment les premières corrélations entre les données 
 
 #### Nombre de cas 
 
+![image-20201225114502683](/keyser-blog/assets/images/pred_cases.png)
+
 #### Nombre de décès
 
+![image-20201225114510801](/keyser-blog/assets/images/pred_death.png)
+
+### Prédiction sur le nouveau jeu de données 
+
+> En se basant sur les données météorologiques de l'année passée, nous pouvons tenter de prédire avec la même méthodologie le nombre de personnes hospitalisés sur les mois à venir. 
+
+##### Température sur les mois à venir :
+
+![image-20201225114933675](/keyser-blog/assets/images/temperature_next.png)
+
+> Les températures restants relativement faibles à Bâle sur les mois à venir, cela laisse présager une stagnation, voire une augmentation avec les fêtes du nombre de cas. 
+
+##### Nombre de personnes hospitalisés sur les mois à venir : 
 
 
 
-
-#### Prédiction sur le nouveau jeu de données 
+![image-20201225114755541](/keyser-blog/assets/images/pred_hospi_2.png)
 
 
 
@@ -96,5 +110,10 @@ On peut afficher pour le moment les premières corrélations entre les données 
 
 
 
+Ce court travail d'analyse de données met en évidence la forte connivence entre température et l'épidémie de coronavirus. Alors que nous entrons dans les mois les plus froid de l'année, malgré l'arrivée d'un vaccin, il semble peu probable que l'épidémie recule sur les 3 prochains mois. 
 
 
+
+Sur ce **Joyeux Noël** !!! 
+
+![image-20201225114755541](/keyser-blog/assets/images/end_gif.gif)

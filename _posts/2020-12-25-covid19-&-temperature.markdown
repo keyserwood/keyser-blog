@@ -1,8 +1,9 @@
+---
 layout: post
 title:  "Covid19 & Temperature!"
 date:   2020-12-25 10:24:20 +0100
 categories: data science
-
+---
 # Covid 19 & Température 
 
 > Cette courte étude de data science a pour objectif de faire apparaitre un lien (s'il existe) entre les cas de covid19 et les données météorologiques.  Il faudra donc récupérer les historiques de températures, humidité et aux paramètres et les lier aux nombres de cas de covid.
@@ -66,6 +67,32 @@ On peut afficher pour le moment les premières corrélations entre les données 
 
 
 ## 3. Prédiction 
+
+> Maintenant que nous avons pu voir la relation entre témpérature et nombre de cas (ici hospitalisés), nous allons pouvoir mettre un modèle de regression en place, ici un [RandomForestRegressor](https://medium.com/datadriveninvestor/random-forest-regression-9871bc9a25eb).
+
+#### Entraînement du modèle 
+
+> Grâce à scikit learn, nous mettons en place le RFR et entraînons ce dernier sur notre jeu de données lissés. 
+
+#### Hospitalisés 
+
+
+
+![image-20201225113442334](/keyser-blog/assets/images/pred_hospitalized.png)
+
+#### Nombre de cas 
+
+#### Nombre de décès
+
+
+
+
+
+#### Prédiction sur le nouveau jeu de données 
+
+
+
+## 4. Conclusion 
 
 
 

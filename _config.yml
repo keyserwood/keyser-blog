@@ -31,9 +31,14 @@ github_username:  keyserwood
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-get-json
 
 include:
 - "_images"
+
+jekyll-get-json:
+  - data: movies
+    json : "https://keyserwood-flask-movies-app.herokuapp.com/" 
 
 # Exclude from processing.
 # The following items will not be processed, by default.

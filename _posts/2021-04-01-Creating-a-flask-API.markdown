@@ -18,22 +18,23 @@ Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-t
 {% endfor %}
 </ul>
 
+## Nos chiens 
+
+<ul class='post-list'>
+
+
+{% for dog in site.data.dogs %}
+<li>{{dog.age}} </li>
+{% endfor %}
+</ul>
+
 ## Nos films 
 
-var request = new XMLHttpRequest()
-
-request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-request.onload = function () {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-
-  if (request.status >= 200 && request.status < 400) {
-    data.forEach((movie) => {
-      console.log(movie.title)
-    })
-  } else {
-    console.log('error')
-  }
-}
-
-request.send()
+<script> 
+	$.getJSON('https://ben.balter.com/simple-api/dogs.json', function(data) {
+    // JSON result in `data` variable
+});
+	var str = JSON.stringify(data, null, 2); // spacing level = 
+    let d = new Date();
+    document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+</script>

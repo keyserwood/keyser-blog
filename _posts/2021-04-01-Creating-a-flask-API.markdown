@@ -4,11 +4,14 @@ title:  "Creating a flask API"
 date:   2021-01-04 17:00:00 +0100
 categories: data science
 ---
+<link rel="stylesheet" href="/keyser-blog/assets/css/styles.css">
 # Flask API 
 
 > Après avoir créé un API Flask et l'avoir déployé sur heroku nous allons mettre en forme les donnés de ce dernier sur notre blog.
 Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-to-a-static-site).
-
+{
+  width: 500px;
+  clear: both;
 # Lire un fichier JSON (/data/products)
 
 ## Nos produits : 
@@ -23,7 +26,7 @@ Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-t
 > La liste de film est chargée depuis un Api Flask deployé sur [heroku](https://keyserwood-flask-movies-app.herokuapp.com/)
 
 <div class = "container">
-	<button id ='button1'>JSON</button>
+	<button id ='button1'>GET</button>
 	<button id ='button2'>POST Resquest</button>
 </div>
 
@@ -33,6 +36,33 @@ Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-t
 
 <div id = 'result'></div>
 
+#### Formulaire d'ajout de film 
+<script type="text/javascript">
+	function afficher(form2){
+		var testin = document.form2.input.value;
+		document.form2.output.value = testin
+	} 
+
+</script>
+
+
+
+<div class="container">
+	<form name="form2">
+		<label>Nom du film</label>
+		<input type="text" name="film_name" value=""> <br />
+		<label>Directeur</label>
+		<input type="text" name="film_director" value=""> <br />
+		<label>Genre</label>
+		<input type="text" name="film_genre" value=""> <br />
+		<label>Collection (ex: 200)</label>
+		<input type="text" name="film_collection" value=""> <br />
+		<br/>
+		<button id ='add_film_button'>Ajouter le film</button>
+	</form>
+</div>
+
+
 > Voici le résultat de la requête POST
 
 <div id = 'post_result'></div>
@@ -40,6 +70,8 @@ Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-t
 
 document.getElementById('button1').addEventListener('click', loadJSON);
 document.getElementById('button2').addEventListener('click', postReq);
+document.getElementById('add_film_button').addEventListener('click', postFormReq);
+
 
 
 // Load and print JSON
@@ -61,7 +93,6 @@ function loadJSON(){
 	
 }
 // Post request
-
 function postReq(){
 	var request_body = JSON.stringify({director: "JM Poiré", genre: "Comique",collection: 500});
 	
@@ -77,22 +108,32 @@ function postReq(){
     xhr.open('POST','https://keyserwood-flask-movies-app.herokuapp.com/Les_Visiteurs');
     xhr.setRequestHeader('content-type','application/json');
     xhr.send(request_body);
-
-	// fetch('https://keyserwood-flask-movies-app.herokuapp.com/Les_Visiteurs', myInit)
-	// .then(function(response){
-	// 	// console.log(response);
-	// 	return response.json();
-	// })
-	// .then(function(data){
-	// 	console.log(data);
-	// 	// let html ="";
-	// 	// data.Movies.forEach(function(movie){
-	// 	// 	html+= '<li>'+movie.Title+' '+movie.Genre+ '</li>';	    
-	// 	// 	});
-	// 	// document.getElementById('post_result').innerHTML = html;
-
-	// 	});
 		
+}
+// Read Form and Send Post Req
+function postFormReq(form2){
+	// Scan form data
+	var film_name = document.form2.film_name.value;
+	var film_director = document.form2.film_director.value;
+	var film_genre = document.form2.film_genre.value;
+	var film_collection = document.form2.film_collection.value;
+	// Create body & url for request
+	var request_body = JSON.stringify({director: film_director, genre: film_genre,collection: film_collection});
+	var url  = "https://keyserwood-flask-movies-app.herokuapp.com/"+film_name
+	
+
+	//Make POST request
+	var myHeaders = new Headers();
+	var myInit = {method:'POST',
+				  headers : myHeaders,
+				  mode : 'cors',
+				  body : request_body,
+				  cache : 'default'};
+    const xhr = new XMLHttpRequest();	
+
+    xhr.open('POST',url);
+    xhr.setRequestHeader('content-type','application/json');
+    xhr.send(request_body);
 
 }
 </script>

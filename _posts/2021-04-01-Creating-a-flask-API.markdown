@@ -24,15 +24,23 @@ Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-t
 
 <div class = "container">
 	<button id ='button1'>JSON</button>
+	<button id ='button2'>POST Resquest</button>
 </div>
 
 ## Nos films 
+
 > Voici la liste des films
+
 <div id = 'result'></div>
 
+> Voici le résultat de la requête POST
+
+<div id = 'post_result'></div>
 <script  type="text/javascript">
 
 document.getElementById('button1').addEventListener('click', loadJSON);
+document.getElementById('button2').addEventListener('click', postReq);
+
 
 // Load and print JSON
 function loadJSON(){
@@ -52,7 +60,43 @@ function loadJSON(){
 		});
 	
 }
+// Post request
+
+function postReq(){
+	var request_body = JSON.stringify({director: "JM Poiré", genre: "Comique",collection: 500});
+	
+	var myHeaders = new Headers();
+	var myInit = {method:'POST',
+				  headers : myHeaders,
+				  mode : 'cors',
+				  body : request_body,
+				  cache : 'default'};
+    console.log(request_body);
+    const xhr = new XMLHttpRequest();	
+
+    xhr.open('POST','https://keyserwood-flask-movies-app.herokuapp.com/Les_Visiteurs');
+    xhr.setRequestHeader('content-type','application/json');
+    xhr.send(request_body);
+
+	// fetch('https://keyserwood-flask-movies-app.herokuapp.com/Les_Visiteurs', myInit)
+	// .then(function(response){
+	// 	// console.log(response);
+	// 	return response.json();
+	// })
+	// .then(function(data){
+	// 	console.log(data);
+	// 	// let html ="";
+	// 	// data.Movies.forEach(function(movie){
+	// 	// 	html+= '<li>'+movie.Title+' '+movie.Genre+ '</li>';	    
+	// 	// 	});
+	// 	// document.getElementById('post_result').innerHTML = html;
+
+	// 	});
+		
+
+}
 </script>
+
 
 <!-- <script type="text/javascript"> 
 	$.getJSON('https://ben.balter.com/simple-api/dogs.json', function(data) {

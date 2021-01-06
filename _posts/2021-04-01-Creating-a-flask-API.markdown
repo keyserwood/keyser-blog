@@ -8,9 +8,7 @@ categories: data science
 <script src = "/keyser-blog/assets/js/flask_api_post_script.js"></script>
 # Flask API 
 
-> Après avoir créé un API Flask et l'avoir déployé sur heroku nous allons mettre en forme les donnés de ce dernier sur notre blog.
-Sur ces [bons conseils](https://www.raymondcamden.com/2016/03/01/adding-an-api-to-a-static-site).
-
+> Après avoir créé un API Flask et l'avoir déployé sur heroku nous allons mettre en forme les donnés de ce dernier sur notre blog. Pour cela nous utiliserons [javascript](https://github.com/keyserwood/keyser-blog/blob/gh-pages/assets/js/flask_api_post_script.js) afin d'afin de consommer l'API.
 
 ### Appuyez sur le bouton pour charger notre liste de films
 > La liste de film est chargée depuis un Api Flask deployé sur [heroku](https://keyserwood-flask-movies-app.herokuapp.com/)
